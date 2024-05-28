@@ -150,3 +150,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+**.history/
+test_get_projects.py
+test.py

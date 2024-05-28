@@ -1,4 +1,4 @@
-query OrganizationProject($organization_name: String!, $project_number: Int!, $labels_per_issue_count: Int!, $cursor: String) {
+query OrganizationProject($organization_name: String!, $project_number: Int!, $view_number: Int!, $labels_per_issue_count: Int!, $cursor: String) {
   organization(login: $organization_name) {
     projectV2(number: $project_number) {
       title
@@ -11,8 +11,8 @@ query OrganizationProject($organization_name: String!, $project_number: Int!, $l
       }
       items(first: 100, after: $cursor) {
         pageInfo {
-            hasNextPage
-            endCursor
+          hasNextPage
+          endCursor
         }
         nodes {
           id
@@ -60,6 +60,9 @@ query OrganizationProject($organization_name: String!, $project_number: Int!, $l
             }
           }
         }
+      }
+      view(number: $view_number) {
+        name
       }
     }
   }

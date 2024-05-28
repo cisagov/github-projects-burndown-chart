@@ -58,7 +58,7 @@ def gh_api_query(query: str, variables: dict) -> dict:
     response = __get_from_cache(query, variables)
     if not response:
         response = __get_from_api(query, variables)
-        __cache_response(query, variables, response)
+        # __cache_response(query, variables, response)
     return response
 
 
